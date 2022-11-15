@@ -54,10 +54,10 @@ bot.on('message', async (msg) => {
   bot.sendMessage(chatId, 'Received your message');
 });
 
-app.post('/web-data',(req, res) =>{
+app.post('/web-data', async (req, res) =>{
     try{
     const {queryId, products, totalPrice}=req.body;
-    bot.answerWebAppQuery(queryId,{
+        await bot.answerWebAppQuery(queryId,{
         type: 'article',
         id: queryId,
         title:'succes buy',
